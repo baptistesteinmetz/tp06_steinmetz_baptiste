@@ -1,0 +1,28 @@
+<div *ngIf="formValidate">
+    <div class="user-card" [ngClass]="{'user-boy': user.gender == 'Man', 'user-girl':user.gender == 'Woman'}">
+        <div class="user-card-header">
+            <p>Welcome {{user.firstname}}, here's a recap!</p>
+        </div>
+        <div class="user-card-info">
+            <div>
+                <p>{{user.firstname}} {{user.lastname}}
+                    <span *ngIf="user.gender == 'Man'">♂
+         </span>
+                    <span *ngIf="user.gender == 'Woman'">♀
+         </span>
+                </p>
+                <p>{{user.login}}</p>
+                <p>{{user.mail}}</p>
+            </div>
+        </div>
+        <div class="user-card-adress">
+            <div>
+                <p>{{user.adress}}, {{user.city}}, {{user.zipcode}}</p>
+                <p *ngIf="user.phone"> {{user.country | callcode}} {{user.phone | phone }}</p>
+            </div>
+        </div>
+        <div class="user-card-ok">
+            <p>See you soon!</p>
+        </div>
+    </div>
+</div>

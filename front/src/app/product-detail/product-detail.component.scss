@@ -1,0 +1,70 @@
+:host {
+    width: 100%;
+    font-family: Arial;
+    .detail-product {
+        display: flex;
+        margin-top: 20px;
+        padding: 20px;
+        margin: 20px;
+        border-radius: 2px;
+        .detail-img {
+            width: 30%;
+            padding: 5px;
+            border-radius: 5px;
+            img {
+                width: 100%;
+            }
+        }
+        .detail-info {
+            width: 70%;
+            padding: 15px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            h2 {
+                font-size: 2em;
+                font-weight: bold;
+                span {
+                    font-weight: normal;
+                }
+            }
+            .info {
+                display: flex;
+                margin-top: 20px;
+                & p {
+                    font-weight: bold;
+                }
+                .info-dynamic {
+                    margin-left: 10px;
+                    font-weight: normal;
+                }
+            }
+            .info-action {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+            }
+            a {
+                text-decoration: none;
+                margin-right: 5px;
+                span {
+                    margin: 2px;
+                }
+            }
+            .btn-product {
+                font-size: 1em;
+                color: black;
+                align-self: end;
+                padding: 8px;
+                border: 0;
+                cursor: pointer;
+                opacity: 0.9;
+                border-radius: 3px;
+                transition: 0.5s all ease-in-out;
+                &:hover {
+                    opacity: 1;
+                }
+            }
+        }
+    }
+}

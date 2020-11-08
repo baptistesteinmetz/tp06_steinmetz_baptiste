@@ -1,0 +1,16 @@
+#header {
+  border-radius: 20px 20px 0 0;
+  background-color: #85c7de;
+}
+#header h2 {
+  margin: 0 auto;
+  text-align: center;
+  padding: 10px;
+  color: white;
+  font-family: Arial;
+  height: 3em;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}

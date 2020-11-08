@@ -1,0 +1,25 @@
+<nav>
+    <div class="header-navigation">
+        <!-- <span>Liste des TPs WEB:</span> -->
+        <ul>
+            <li routerLinkActive="active">
+                <a routerLink="home">Home</a>
+            </li>
+            <li routerLinkActive="active">
+                <a routerLink="account">Account</a>
+            </li>
+            <li routerLinkActive="active">
+                <a routerLink="products">Store</a>
+            </li>
+            <li [routerLinkActive]="['active', 'non-active']">
+                <a routerLink="cart">Cart</a>
+            </li>
+        </ul>
+    </div>
+    <div class="header-shopping-cart">
+        <a routerLink="cart">
+            <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+            <span>{{nbProducts$|async}}</span>
+        </a>
+    </div>
+</nav>

@@ -1,0 +1,70 @@
+.user-boy .user-card-header,
+.user-boy .user-card-ok {
+    background-color: #8cde85;
+    color: black;
+}
+
+.user-girl .user-card-header,
+.user-girl .user-card-ok {
+    background-color: #de85c4;
+}
+
+.user-card {
+    // padding: 30px;
+    transition: all 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+    background: #FFF;
+    border-radius: 25px;
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    font-family: Arial, Helvetica, sans-serif;
+    height: 350px;
+    &:hover {
+        box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+    }
+    .user-card-header {
+        // margin: 0 auto;
+        text-align: center;
+        padding: 10px;
+        color: white;
+        font-family: Arial;
+        height: 3em;
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        border-radius: 20px 20px 0 0;
+        transition: all 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
+        div {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+    }
+    .user-card-adress {
+        padding: 15px;
+        div p {
+            text-align: center;
+        }
+    }
+    .user-card-ok {
+        border-radius: 0 0 20px 20px;
+        // background-color: #de85c4;
+        height: 2em;
+        color: white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transition: all 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
+    }
+    .user-card-info {
+        display: flex;
+        justify-content: center;
+        div p {
+            padding: 5px;
+            text-align: center;
+        }
+    }
+}

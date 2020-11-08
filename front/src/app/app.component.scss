@@ -1,0 +1,18 @@
+@import "./colors.scss";
+body {
+    margin: 0;
+    height: 100%;
+    font-family: Arial;
+    overflow-x: hidden;
+    font-family: Arial;
+}
+
+#app {
+    background: $body;
+}
+
+#main {
+    display: flex;
+    justify-content: space-evenly;
+    height: 100%;
+}

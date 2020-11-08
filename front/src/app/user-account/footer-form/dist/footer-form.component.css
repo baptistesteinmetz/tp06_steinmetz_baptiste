@@ -1,0 +1,15 @@
+#footer-bar {
+  height: 3em;
+  border-radius: 0 0 20px 20px;
+  background-color: #85c7de;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#footer-bar p {
+  margin: 0 auto;
+  text-align: center;
+  padding: 10px;
+  color: white;
+  font-family: Arial;
+}

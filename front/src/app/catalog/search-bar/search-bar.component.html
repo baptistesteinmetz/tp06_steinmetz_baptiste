@@ -1,0 +1,29 @@
+<form class="form-search-bar">
+  <div id="search-bar">
+    <input
+      type="text"
+      placeholder="Search by Name, exact Price, Description..."
+      [(ngModel)]="searchInput"
+      (ngModelChange)="onSearchProducts()"
+      [ngModelOptions]="{standalone: true}"
+      >
+    <!--  -->
+  </div>
+  <button
+    class="btn-filter btn-price"
+    (click)="onFilterPriceProducts()"
+    >Filter by price
+    <span><i class="fa" [ngClass]="{'fa-arrow-up' : filterPriceStatus === 1 , 'fa-arrow-down' : filterPriceStatus === 0, '' : !filterPriceStatus}" aria-hidden="true"></i></span>
+  </button>
+
+  <button
+  class="btn-filter btn-name"
+  (click)="onFilterNameProducts()"
+  >Filter by name
+  <span><i class="fa" [ngClass]="{'fa-sort-alpha-desc' : filterNameStatus === 1 , 'fa-sort-alpha-asc' : filterNameStatus === 0, '' : !filterNameStatus}" aria-hidden="true"></i></span>
+</button>
+</form>
+
+<!-- (click)="onFilterProducts()" -->
+   <!-- [formControl]="products" -->
+

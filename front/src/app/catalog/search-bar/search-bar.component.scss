@@ -1,0 +1,61 @@
+.form-search-bar {
+  display:flex;
+  align-items: center;
+
+  #search-bar {
+    width:40%;
+    border: 2px solid #b9adad;
+    border-radius: 4px;
+    font-size: 1rem;
+    margin: 0.25rem;
+    min-width: 125px;
+    padding: 0.5rem;
+    transition: border-color 0.5s ease-out;
+
+    &:hover {
+      border: 2px solid #4d4848;
+    }
+
+    input {
+      width: 100%;
+      height: 100%;
+      border: 0;
+
+    }
+
+
+  }
+}
+
+.btn-filter {
+  cursor: pointer;
+  border: none;
+  position:relative;
+  background: #18f7f7;
+  border-radius: 5px;
+  margin: 5px;
+  height: 35px;
+  transition: all ease-out 1s;
+  width: 12em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &:hover {
+    background: #4dd3ee;
+  }
+
+  .btn-price {
+
+  }
+  .btn-name {
+
+  }
+
+  span {
+    position: absolute;
+    right: 15px;
+    font-size: 15px;
+    color: #8781a2cf;
+  }
+}

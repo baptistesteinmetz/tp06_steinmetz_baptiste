@@ -1,0 +1,22 @@
+<form [formGroup]="form" (ngSubmit)="onSubmit($event)" *ngIf="!this.logged">
+    <div class="c-input-one">
+        <label for="mail">Login :</label>
+        <input formControlName="login" [(ngModel)]="login" type="text" id="login" name="login">
+
+    </div>
+    <div class="c-input">
+
+        <div class="c-input-one">
+            <label for="pass">Password:</label>
+            <input formControlName="password" [(ngModel)]="password" type="password" id="password" name="password">
+
+        </div>
+        <div class="separator"></div>
+
+        <div class="c-input btn-container">
+            <button type="submit" class="validate" value="Valider" [disabled]="!form.valid">
+      Submit
+    </button>
+        </div>
+    </div>
+</form>

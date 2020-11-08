@@ -1,0 +1,36 @@
+<app-search-bar>[products]="products |async">
+</app-search-bar>
+
+<div id="section-product-cart">
+    <section id="section-product-list">
+        <div *ngIf="!loaded" class="product-loading"><span><i class="fa fa-spin fa-spinner"></i></span></div>
+        <div *ngIf="loaded" id="product-list" [ngClass]="{'product-list-display': loaded }">
+            <div (mouseover)="hover=true" (mouseleave)="hover=false" *ngFor="let item of products | async" class="product">
+                <div class="product-header">
+                    <p class="product-header-title" [style.background]="item.backgroundLight">{{item.name}} - <b class="product-price">{{item.price}}€</b></p>
+                    <div class="product-header-img">
+                        <img class="product-img" src="../../assets/img/{{item.src}}" />
+
+                    </div>
+                </div>
+                <div class="product-separator"></div>
+                <div class="product-info">
+                    <p class="product-sec-info">{{item.description}}</p>
+                    <div class="product-action">
+                        <a class="product-info-btn btn-product" [routerLink]="[item.id]" [style.background]="item.backgroundDark"><i class="fa fa-info" aria-hidden="true"></i></a>
+                        <button class="product-buy-btn btn-product" (click)="onClickAdd(item)" [style.background]="item.backgroundDark">Add to cart <i class="fa fa-cart-plus" aria-hidden="true"></i></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section [@hide]="stateHide" id="section-cart-list">
+        <div class="product-list-shop">
+            <div class="hide-cart" (click)="hideCart($event)">
+                <!-- <i class="fa" [ngClass]="stateHide == 'active' ?' fa-long-arrow-left' : 'fa-long-arrow-right'" aria-hidden="true"></i> -->
+            </div>
+            <app-shopping-cart>
+            </app-shopping-cart>
+        </div>
+    </section>
+</div>

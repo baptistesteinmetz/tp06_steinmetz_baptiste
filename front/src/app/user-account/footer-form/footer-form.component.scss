@@ -1,0 +1,16 @@
+@import './../../colors.scss';
+#footer-bar {
+    height: 3em;
+    border-radius: 0 0 20px 20px;
+    background-color: $primary-blue;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    p {
+        margin: 0 auto;
+        text-align: center;
+        padding: 10px;
+        color: white;
+        font-family: Arial;
+    }
+}

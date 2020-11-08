@@ -1,0 +1,35 @@
+:host {
+  width: 100%;
+  height: 100%;
+  font-family: Arial;
+}
+:host #homepage {
+  height: 100%;
+}
+:host #homepage .homepage-routes {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+:host #homepage .homepage-routes a.btn-routes {
+  width: 15em;
+  text-decoration: none;
+  font-size: 1em;
+  color: white;
+  background-color: #23758e;
+  padding: 8px;
+  border: 0;
+  margin: 5px;
+  cursor: pointer;
+  opacity: 0.9;
+  border-radius: 3px;
+  transition: 0.3s all ease-in;
+  display: flex;
+  justify-content: space-between;
+}
+:host #homepage .homepage-routes a.btn-routes:hover {
+  font-size: 1.1em;
+  opacity: 1;
+}
