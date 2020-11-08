@@ -1,3 +1,4 @@
+import { Store } from '@ngxs/store';
 import { Component, EventEmitter, Input, OnInit, Output, Pipe, PipeTransform } from '@angular/core';
 import { FormComponent } from '../form/form.component';
 import { User } from '../../../shared/models/User';
@@ -52,7 +53,8 @@ export class RecapComponent implements OnInit {
 
   @Input () user: User = new User();
   @Input () formValidate: boolean = false;
-  constructor() {
+  constructor(private store: Store) {
+    // get user from store
   }
 
   ngOnInit(): void {

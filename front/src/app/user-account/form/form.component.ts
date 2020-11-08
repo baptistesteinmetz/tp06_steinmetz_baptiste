@@ -110,6 +110,7 @@ export class FormComponent implements OnInit, Validators {
       this.userService.addUser(this.user).subscribe((response) => {
         console.log(response)
       });
+      // dispatch to store
       // this.userTab.push(this.user);
     }
   }

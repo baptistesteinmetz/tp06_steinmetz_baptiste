@@ -1,5 +1,6 @@
 import { Observable, ReplaySubject, Subject } from 'rxjs';
 import { UserService } from './../../user.service';
+import { ApiService } from './../../api.service';
 import { getLocaleDirection } from '@angular/common';
 import { Component, Pipe, Directive, ElementRef, EventEmitter, Input, OnInit, Output, PipeTransform } from '@angular/core';
 import { AbstractControl, FormBuilder, FormControl, FormGroup, Validators, ReactiveFormsModule, Form } from '@angular/forms';
@@ -17,7 +18,7 @@ export class LoginComponent implements OnInit {
   public logged: boolean = false;
   public logErr:boolean = null;
 
-  constructor(private fb: FormBuilder, private userService: UserService) {
+  constructor(private fb: FormBuilder, private userService: UserService, private apiService: ApiService) {
   }
 
   ngOnInit(): void {
@@ -30,7 +31,9 @@ export class LoginComponent implements OnInit {
 
   onSubmit(event)
   {
+    this.apiService.setJWT();
     this.userService.logUser(this.login, this.password).subscribe((response) => {
+      // add user to connect store
       if(response.success == true) {
       console.log('true');
       this.logErr = false;
