@@ -50,6 +50,7 @@ export class ProductService {
   }
 
   public getProducts(): Observable<Product[]> {
+    console.log(environment.baseUrl);
     // return cached products
     if (this.products) {
       return of(this.products);
