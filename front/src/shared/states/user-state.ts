@@ -33,13 +33,11 @@ export class UserState {
     { payload }: AddUser
   ) {
     const state = getState();
-    console.log(payload);
     // if(!state.products.find((product)=> product.id === payload.id)){
       // ProductState.getFullPriceProducts(state);
     patchState({
       user: payload
     });
-    console.log(state);
     }
 
   @Action(ConnectUser)

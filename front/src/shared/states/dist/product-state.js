@@ -46,7 +46,6 @@ var ProductState = /** @class */ (function () {
             products: __spreadArrays(state.products, [payload])
         });
         // }
-        console.log(state.products);
     };
     ProductState.prototype.del = function (_a, _b) {
         var getState = _a.getState, patchState = _a.patchState;
