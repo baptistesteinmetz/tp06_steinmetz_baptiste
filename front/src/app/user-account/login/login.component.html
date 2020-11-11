@@ -1,4 +1,7 @@
 <form [formGroup]="form" (ngSubmit)="onSubmit($event)" *ngIf="!this.logged">
+    <div class="header">
+        <h2>Login</h2>
+    </div>
     <div class="c-input-one">
         <label for="mail">Login :</label>
         <input formControlName="login" [(ngModel)]="login" type="text" id="login" name="login">
@@ -14,9 +17,13 @@
         <div class="separator"></div>
 
         <div class="c-input btn-container">
-            <button type="submit" class="validate" value="Valider" [disabled]="!form.valid">
-      Submit
-    </button>
+            <button type="submit" *ngIf="!waiting" class="validate" value="Valider" [disabled]="!form.valid">
+                Submit
+            </button>
+            <i *ngIf="waiting" class="fa fa-spin fa-spinner" aria-hidden="true"></i>
+
+        </div>
+        <div class="footer">
         </div>
     </div>
 </form>

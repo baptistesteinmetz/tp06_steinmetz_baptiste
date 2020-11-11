@@ -3,7 +3,7 @@
     <div class="cart-content">
         <h1 class="cart-title">Your Cart <i class="fa fa-shopping-cart" aria-hidden="true"></i></h1>
         <div class="cart-list">
-            <span *ngIf="!(nbProducts$ |async)">Your cart is empty... Time to shop. <i class="fa fa-frown-o" aria-hidden="true"></i></span>
+            <span *ngIf="!(nbProducts$ |async)">Your cart is empty... <i class="fa fa-frown-o smiley-face" aria-hidden="true"></i></span>
             <div class="cart-product-list cart-container">
                 <p>Total products : {{ nbProducts$ | async }} | Price : {{ priceProducts$ | async}}€</p>
                 <div class="cart-page-recap">

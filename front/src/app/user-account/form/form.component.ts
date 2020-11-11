@@ -37,6 +37,8 @@ export class FormComponent implements OnInit, Validators {
   userTab: User[] = [];
   logged: User = new User();
   currentUser$: Observable<User>;
+  public waiting: boolean = false;
+
   // @Input() userName: string = this.user.firstname;
 
   constructor(private fb: FormBuilder, private userService: UserService, private userstore: Store) {
@@ -114,19 +116,14 @@ export class FormComponent implements OnInit, Validators {
 
   onSubmit(event) {
     event.preventDefault();
-    // // console.log(this.user);
+    this.waiting = true;
     this.user.firstname = this.form.value.firstname;
     if (this.form.valid) {
       this.userService.addUser(this.user).subscribe((response) => {
-        // console.log(response);
         this.logged = response;
-        // if(response.user) this.logged = response.user;
-        // console.log(this.logged)
         this.userstore.dispatch(new AddUser(this.logged));
         this.formValidate=true;
       });
-      // dispatch to store
-      // this.userTab.push(this.user);
     }
   }
 }

@@ -21,12 +21,18 @@
             align-items: center;
             height: 100%;
             margin-top: 15px;
+            .smiley-face {
+                color: #ffa726;
+                font-weight: bold;
+                font-size: 25px;
+            }
         }
     }
     .cart-product-list {
         width: 100%;
         &>p {
             text-align: center;
+            padding:5px;
         }
         .cart-page-recap {
             display: none;

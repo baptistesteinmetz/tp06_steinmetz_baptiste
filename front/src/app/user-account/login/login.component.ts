@@ -19,8 +19,11 @@ export class LoginComponent implements OnInit {
   public password: string;
   public login: string;
   public logged: boolean = false;
+  public waiting: boolean = false;
   public logErr :boolean = null;
   public loggedUser:User = new User();
+
+
   constructor(private fb: FormBuilder, private userService: UserService, private apiService: ApiService, private userstore: Store) {
   }
 
@@ -34,6 +37,7 @@ export class LoginComponent implements OnInit {
 
   onSubmit(event)
   {
+    this.waiting = true;
     this.apiService.setJWT();
     this.userService.logUser(this.login, this.password).subscribe((response) => {
       // add user to connect store
@@ -54,6 +58,7 @@ export class LoginComponent implements OnInit {
         this.userstore.dispatch(new AddUser(this.loggedUser));
       }
       else {
+        this.waiting = false;
         this.form.value.login = null;
         this.form.value.password = null;
         this.logErr = true;

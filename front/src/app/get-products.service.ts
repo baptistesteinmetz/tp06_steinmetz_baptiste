@@ -28,7 +28,7 @@ export class ProductService {
         products = products.filter(product => {
           if(!isNaN(parseFloat(searchTerm)))
           {
-            return product.price === parseFloat(searchTerm);
+            return product.price.toString().includes(searchTerm.toString());
           }
           else {
             return product.name.toLowerCase().includes(searchTerm) || product.description.toLowerCase().includes(searchTerm)
