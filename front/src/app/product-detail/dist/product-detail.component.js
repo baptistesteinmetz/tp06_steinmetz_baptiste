@@ -24,11 +24,11 @@ var ProductDetailComponent = /** @class */ (function () {
     };
     ProductDetailComponent.prototype.ngOnInit = function () {
         var _this = this;
-        console.log('here');
+        // console.log('here');
         var id = this.route.snapshot.params.id;
         this.product$ = this.productService.getSingleProduct(id);
         this.productService.getSingleProduct(id).subscribe(function (product) {
-            console.log(product);
+            // console.log(product);
             _this.singleProduct = product;
         });
     };

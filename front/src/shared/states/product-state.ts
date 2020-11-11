@@ -40,15 +40,16 @@ export class ProductState {
     { payload }: AddProduct
   ) {
     const state = getState();
+    console.log(state);
     // if(!state.products.find((product)=> product.id === payload.id)){
       // ProductState.getFullPriceProducts(state);
-      patchState({
-        // créer un nouveau tableau
-        // l'opérateur ... permet de consituer une liste d'élement du tableau
-        products: [...state.products, payload],
-      });
+    patchState({
+      // créer un nouveau tableau
+      // l'opérateur ... permet de consituer une liste d'élement du tableau
+      products: [...state.products, payload],
+    });
+    console.log(state);
     // }
-    console.log(state.products);
   }
 
   @Action(DelProduct)

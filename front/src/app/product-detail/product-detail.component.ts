@@ -31,11 +31,11 @@ export class ProductDetailComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    console.log('here')
+    // console.log('here')
     let id = this.route.snapshot.params.id;
     this.product$ = this.productService.getSingleProduct(id);
     this.productService.getSingleProduct(id).subscribe((product) => {
-      console.log(product);
+      // console.log(product);
       this.singleProduct = product;
     });
   }

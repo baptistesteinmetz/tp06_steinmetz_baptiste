@@ -32,7 +32,9 @@ export class UserService extends ApiService {
     body.set('login', u.login);
     body.set('country', u.country);
     body.set('phone', u.phone);
-    return this.hClient.post<User>('https://rocky-cove-86873.herokuapp.com/user/register', body.toString(), this.httpOptions);
+    return this.hClient.post<any>('https://rocky-cove-86873.herokuapp.com/user/register', body.toString(), this.httpOptions).pipe(
+      map((data) => data.user)
+    );
   }
 
   public logUser(log: string, pwd: string) : Observable<any> {

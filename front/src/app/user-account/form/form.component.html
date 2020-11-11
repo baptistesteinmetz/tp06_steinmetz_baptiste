@@ -1,7 +1,7 @@
 <!-- <p>form works!</p>  -->
 <!-- <span> {{ user.firstname }} </span> -->
 <div id="section-main">
-    <div id="section-form">
+    <div id="section-form"  *ngIf="!formValidate" (formValidate)="formValidate = $event">
         <app-header-form></app-header-form>
         <form [formGroup]="form" (ngSubmit)="onSubmit($event)">
             <div class="c-input">
@@ -142,11 +142,11 @@
 
         <app-footer-form></app-footer-form>
     </div>
-    <div id="section-log-in">
+    <div id="section-log-in" *ngIf="!formValidate">
         <app-login></app-login>
     </div>
-    <div id="section-recap">
-        <app-recap [user]="user" [formValidate]="formValidate"></app-recap>
+    <div *ngIf="formValidate" id="section-recap">
+        <app-recap [formValidate]="formValidate"></app-recap>
 
     </div>
 </div>

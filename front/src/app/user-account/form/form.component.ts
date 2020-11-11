@@ -1,3 +1,7 @@
+import { UserStateModel } from './../../../shared/states/user-state-model';
+import { UserState } from './../../../shared/states/user-state';
+import { AddUser } from './../../../shared/actions/user-action';
+import { Store } from '@ngxs/store';
 import { Observable, ReplaySubject, Subject } from 'rxjs';
 import { UserService } from './../../user.service';
 import { getLocaleDirection } from '@angular/common';
@@ -12,6 +16,7 @@ import {
   ErrorInputDirective,
 } from './../../customdirectives.directive';
 import { User } from '../../../shared/models/User';
+import { ɵEmptyOutletComponent } from '@angular/router';
 
 @Component({
   selector: 'app-form',
@@ -23,18 +28,18 @@ import { User } from '../../../shared/models/User';
 
 
 export class FormComponent implements OnInit, Validators {
-  public user: User = new User();
+  public user = new User();
 
   public user$: Subject<User[]> = new ReplaySubject<User[]>(1);
 
   form: FormGroup;
   formValidate: boolean = false;
   userTab: User[] = [];
-
+  logged: User = new User();
+  currentUser$: Observable<User>;
   // @Input() userName: string = this.user.firstname;
 
-  constructor(private fb: FormBuilder, private userService: UserService) {
-    this.user = new User();
+  constructor(private fb: FormBuilder, private userService: UserService, private userstore: Store) {
     this.user.gender = 'Man';
     this.user.country = 'fr';
     this.user.firstname = 'Baptiste';
@@ -50,6 +55,12 @@ export class FormComponent implements OnInit, Validators {
 
   ngOnInit(): void {
     this.initForm();
+    // don't want another route, the account should always lead to current user once he has submitted form
+    this.userstore.select(UserState.getUser).subscribe((data) => {
+      if (JSON.stringify(data) !== JSON.stringify({})) {
+        this.formValidate=true;
+      }
+    });
   }
 
   initForm(): void {
@@ -103,12 +114,16 @@ export class FormComponent implements OnInit, Validators {
 
   onSubmit(event) {
     event.preventDefault();
-    this.formValidate = true;
-    // console.log(this.user);
+    // // console.log(this.user);
     this.user.firstname = this.form.value.firstname;
     if (this.form.valid) {
       this.userService.addUser(this.user).subscribe((response) => {
-        console.log(response)
+        // console.log(response);
+        this.logged = response;
+        // if(response.user) this.logged = response.user;
+        // console.log(this.logged)
+        this.userstore.dispatch(new AddUser(this.logged));
+        this.formValidate=true;
       });
       // dispatch to store
       // this.userTab.push(this.user);

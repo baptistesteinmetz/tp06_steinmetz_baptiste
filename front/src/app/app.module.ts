@@ -1,3 +1,4 @@
+import { UserState } from './../shared/states/user-state';
 import { HeaderComponent } from './header/header.component';
 import { BrowserAnimationsModule, NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { ProductState } from './../shared/states/product-state';
@@ -25,7 +26,8 @@ import { HomeComponent } from './home/home.component';
     HttpClientModule,
     NgxsModule,
     NgxsModule.forRoot([
-      ProductState
+      ProductState,
+      UserState
     ]),
   ],
   exports: [RouterModule],

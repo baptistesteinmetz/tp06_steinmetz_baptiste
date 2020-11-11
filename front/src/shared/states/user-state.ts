@@ -1,24 +1,25 @@
 import { UserStateModel } from './user-state-model';
 // add actions : login => store username to display it
 // adduser and store it
-import { Product } from './../../shared/models/products';
 import { ShowUser, ConnectUser, AddUser } from './../actions/user-action';
 import { NgxsModule, Action, Selector, State, StateContext } from '@ngxs/store';
+import { User } from '../models/User';
 
 
 @State<UserStateModel>({
   name: 'userContent',
   defaults: {
-    user: [],
-    logged: [],
+    user: new User(),
+    // logged: [],
   }
 })
 export class UserState {
 
-  // @Selector()
-  // static getProduct(id: number) {
-  //   // return state.products.find(x => x.id === id);
-  // }
+  @Selector()
+  static getUser(state: UserStateModel) : User {
+    return state.user;
+    // return state.products.find(x => x.id === id);
+  }
 
   // @Selector()
   // static getNbProducts(state: ProductStateModel): number {
@@ -32,14 +33,14 @@ export class UserState {
     { payload }: AddUser
   ) {
     const state = getState();
+    console.log(payload);
     // if(!state.products.find((product)=> product.id === payload.id)){
       // ProductState.getFullPriceProducts(state);
-      // patchState({
-      //   products: [...state.products, payload],
-      // });
-    // }
-    // console.log(state.products);
-  }
+    patchState({
+      user: payload
+    });
+    console.log(state);
+    }
 
   @Action(ConnectUser)
   log(

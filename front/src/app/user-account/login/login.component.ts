@@ -1,3 +1,6 @@
+import { User } from './../../../shared/models/User';
+import { AddUser } from './../../../shared/actions/user-action';
+import { Store } from '@ngxs/store';
 import { Observable, ReplaySubject, Subject } from 'rxjs';
 import { UserService } from './../../user.service';
 import { ApiService } from './../../api.service';
@@ -16,9 +19,9 @@ export class LoginComponent implements OnInit {
   public password: string;
   public login: string;
   public logged: boolean = false;
-  public logErr:boolean = null;
-
-  constructor(private fb: FormBuilder, private userService: UserService, private apiService: ApiService) {
+  public logErr :boolean = null;
+  public loggedUser:User = new User();
+  constructor(private fb: FormBuilder, private userService: UserService, private apiService: ApiService, private userstore: Store) {
   }
 
   ngOnInit(): void {
@@ -35,9 +38,20 @@ export class LoginComponent implements OnInit {
     this.userService.logUser(this.login, this.password).subscribe((response) => {
       // add user to connect store
       if(response.success == true) {
-      console.log('true');
-      this.logErr = false;
-        this.logged = true;
+        // this.logErr = false;
+        this.loggedUser.login = this.login;
+        this.loggedUser.password = this.password;
+        this.loggedUser.firstname = 'Random';
+        this.loggedUser.lastname = 'User';
+        this.loggedUser.zipcode = '67700';
+        this.loggedUser.city = 'Somewhere';
+        this.loggedUser.gender = 'Man';
+        this.loggedUser.mail = 'somewhere@user.fr';
+        this.loggedUser.country = 'fr';
+        this.loggedUser.phone = '0100011055';
+        this.loggedUser.adress = '1 John Avenue';
+        // this.logged = true;
+        this.userstore.dispatch(new AddUser(this.loggedUser));
       }
       else {
         this.form.value.login = null;

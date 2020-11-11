@@ -1,3 +1,6 @@
+import { tap } from 'rxjs/operators';
+import { UserState } from './../../../shared/states/user-state';
+import { Observable } from 'rxjs';
 import { Store } from '@ngxs/store';
 import { Component, EventEmitter, Input, OnInit, Output, Pipe, PipeTransform } from '@angular/core';
 import { FormComponent } from '../form/form.component';
@@ -48,17 +51,24 @@ export class CodePipe implements PipeTransform {
 })
 
 export class RecapComponent implements OnInit {
-  // user: User = new User();
+  user: User = new User();
   // visible: boolean = false;
 
-  @Input () user: User = new User();
+  // @Input () user: User = new User();
   @Input () formValidate: boolean = false;
+
+  user$: Observable<User>;
+
   constructor(private store: Store) {
-    // get user from store
+    // get user from store$
+
   }
 
   ngOnInit(): void {
-
+    // console.log('init')
+    this.store.select(UserState.getUser).subscribe(
+      (data) => {this.user = data;}
+    );
   }
   // @Input () userName: string;
 

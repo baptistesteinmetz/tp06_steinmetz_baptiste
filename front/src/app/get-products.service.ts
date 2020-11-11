@@ -86,11 +86,11 @@ export class ProductService {
         products = products.sort((a,b) => {
           switch(status) {
             case 0:
-              console.log('here !')
+              // console.log('here !')
               return a.name < b.name  ? -1 : 1;
               break;
             case 1:
-              console.log('here ?')
+              // console.log('here ?')
               return a.name > b.name ? -1 : 1;
               break;
           }
