@@ -10,7 +10,7 @@
           "style": "scss"
         }
       },
-      "root": "",
+      "root": "./front",
       "sourceRoot": "./front/src",
       "prefix": "app",
       "architect": {
@@ -94,7 +94,7 @@
               "./front/src/assets"
             ],
             "styles": [
-              "/front/src/styles.scss"
+              "./front/src/styles.scss"
             ],
             "scripts": []
           }
