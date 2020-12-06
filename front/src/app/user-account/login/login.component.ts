@@ -41,6 +41,7 @@ export class LoginComponent implements OnInit {
     this.apiService.setJWT();
     this.userService.logUser(this.login, this.password).subscribe((response) => {
       // add user to connect store
+      console.log(response);
       if(response.success == true) {
         // this.logErr = false;
         this.loggedUser.login = this.login;

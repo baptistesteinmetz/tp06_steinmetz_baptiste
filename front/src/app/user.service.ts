@@ -32,7 +32,7 @@ export class UserService extends ApiService {
     body.set('login', u.login);
     body.set('country', u.country);
     body.set('phone', u.phone);
-    return this.hClient.post<any>('https://rocky-cove-86873.herokuapp.com/user/register', body.toString(), this.httpOptions).pipe(
+    return this.hClient.post<any>('http://localhost:8080/user/register', body.toString(), this.httpOptions).pipe(
       map((data) => data.user)
     );
   }
@@ -41,6 +41,10 @@ export class UserService extends ApiService {
     const  body = new URLSearchParams();
     body.set('login', log);
     body.set('password',pwd);
-    return this.hClient.post<any>('https://rocky-cove-86873.herokuapp.com/user/login', body.toString(), this.httpOptions);
+    return this.hClient.post<any>('http://localhost:8080/user/login', body.toString(), this.httpOptions).pipe(
+      map((response) => {
+        console.log(response);
+      })
+    );
   }
 }

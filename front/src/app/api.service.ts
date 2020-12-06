@@ -10,7 +10,12 @@ export class ApiService {
   constructor(private http: HttpClient) { }
 
   httpOptions = {
-    headers: new HttpHeaders({'Content-Type': 'application/x-www-form-urlencoded', 'Access-Control-Allow-Origin': '*'})
+    headers: new HttpHeaders(
+      {
+        'Content-Type': 'application/x-www-form-urlencoded',
+        'Access-Control-Allow-Origin': 'http://localhost/8080',
+      }),
+    responseType: 'text'
   };
 
   public tokenParse;
