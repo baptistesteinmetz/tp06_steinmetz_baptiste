@@ -1,3 +1,4 @@
+import { environment } from './../environments/environment';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 @Injectable(
@@ -13,9 +14,8 @@ export class ApiService {
     headers: new HttpHeaders(
       {
         'Content-Type': 'application/x-www-form-urlencoded',
-        'Access-Control-Allow-Origin': 'http://localhost/8080',
-      }),
-    responseType: 'text'
+        'Access-Control-Allow-Origin': '*',
+      })
   };
 
   public tokenParse;

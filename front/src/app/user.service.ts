@@ -1,3 +1,4 @@
+import { environment } from './../environments/environment';
 import { ApiService } from './api.service';
 import { EventEmitter } from '@angular/core';
 import { HttpClientModule, HttpClient, HttpHeaders } from '@angular/common/http';
@@ -5,8 +6,8 @@ import { Injectable } from '@angular/core';
 
 import { User } from '../shared/models/User';
 import { Observable, of, ReplaySubject, Subject } from 'rxjs';
-import { environment } from '../environments/environment';
 import { catchError, tap, map, filter} from 'rxjs/operators';
+
 @Injectable(
   {
   providedIn: 'root'
@@ -32,8 +33,9 @@ export class UserService extends ApiService {
     body.set('login', u.login);
     body.set('country', u.country);
     body.set('phone', u.phone);
-    return this.hClient.post<any>('http://localhost:8080/user/register', body.toString(), this.httpOptions).pipe(
-      map((data) => data.user)
+
+    return this.hClient.post<any>(environment.api + '/user/register', body.toString(), this.httpOptions).pipe(
+      map((response) => response.data)
     );
   }
 
@@ -41,10 +43,8 @@ export class UserService extends ApiService {
     const  body = new URLSearchParams();
     body.set('login', log);
     body.set('password',pwd);
-    return this.hClient.post<any>('http://localhost:8080/user/login', body.toString(), this.httpOptions).pipe(
-      map((response) => {
-        console.log(response);
-      })
+    return this.hClient.post<any>(environment.api + '/user/login', body.toString(), this.httpOptions).pipe(
+      tap((response) => response.data)
     );
   }
 }

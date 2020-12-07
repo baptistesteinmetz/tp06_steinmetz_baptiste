@@ -121,8 +121,8 @@ export class FormComponent implements OnInit, Validators {
     if (this.form.valid) {
       this.userService.addUser(this.user).subscribe((response) => {
         this.logged = response;
-        this.userstore.dispatch(new AddUser(this.logged));
-        this.formValidate=true;
+        // this.userstore.dispatch(new AddUser(this.logged));
+        // this.formValidate=true;
       });
     }
   }

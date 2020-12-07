@@ -5,6 +5,7 @@
 export const environment = {
   production: false,
   baseUrl: '../assets/mock/products.json',
+  api: 'http://localhost:8000',
   name: 'products'
 };
 
