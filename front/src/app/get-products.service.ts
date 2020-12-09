@@ -56,7 +56,7 @@ export class ProductService {
       return of(this.products);
     }
     // fetch and cache products
-    return this.http.get<Product[]>(environment.baseUrl).pipe(
+    return this.http.get<Product[]>(environment.api + '/product/all').pipe(
       tap((products: Product[]) => this.products = products)
     );
   }

@@ -14,7 +14,7 @@ export class ApiService {
     headers: new HttpHeaders(
       {
         'Content-Type': 'application/x-www-form-urlencoded',
-        'Access-Control-Allow-Origin': '*',
+        'Access-Control-Allow-Origin': environment.api,
       })
   };
 
