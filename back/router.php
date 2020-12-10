@@ -23,9 +23,15 @@ return function(App $app) {
         // definition des routes
         $group->post("/login", "App\Controllers\UserController:login");
         $group->post("/register", "App\Controllers\UserController:register");
+        $group->get("/get/{id}", "App\Controllers\UserController:getUser");
         
     });
-
+    $app->group('/product', function(Group $group){
+        // definition des routes
+        $group->get("/all", "App\Controllers\ProductController:getAll");
+        $group->get("/{id}", "App\Controllers\ProductController:getOne");
+        
+    });
 
     // $app->get('/bob', function (Request $request, Response $response, array $args) {
     //     $response->getBody()->write("Hello bob");

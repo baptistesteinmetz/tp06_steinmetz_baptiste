@@ -11,3 +11,6 @@ $routes = require __DIR__ . '/../router.php';
 $routes($app);
 
 $app->run();
+
+// echo "hello world";
+
